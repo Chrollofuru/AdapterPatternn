@@ -1,19 +1,24 @@
 package commandPattern;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RemoteControl {
-    private Command command;
-    public Command getCommand() {
-        return command;
+    private Map<String, Command> commands = new HashMap<>();
+
+    public Command getCommand(String slot) {
+        return commands.get(slot);
     }
 
-    public void setCommand(Command command) {
-        this.command = command;
+    public void setCommand(String slot, Command command) {
+        this.commands.put(slot, command);
     }
 
-    public void clickButton(){
-        command.execute();
+    public String clickButton(String slot) {
+        Command command = commands.get(slot);
+        if (command == null) {
+            return "No command assigned to: " + slot;
+        }
+        return command.execute();
     }
-
-
-
 }
