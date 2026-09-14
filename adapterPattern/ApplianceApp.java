@@ -4,26 +4,18 @@ public class ApplianceApp {
 
     public static void main(String[] args){
 
-        Tv tv = new Tv();
-        RemoteControllerFunction tvRc = new TvAdapter(tv);
+        Laptop laptop = new Laptop();
+        PowerOutlet laptopOutlet = new LaptopAdapter(laptop);
 
-        AirCon airCon = new AirCon();
-        RemoteControllerFunction airConRc = new AirconAdapter(airCon);
+        Refrigerator refrigerator = new Refrigerator();
+        PowerOutlet fridgeOutlet = new RefrigeratorAdapter(refrigerator);
 
-        Speaker speaker = new Speaker();
-        RemoteControllerFunction speakerRc = new SpeakerAdapter(speaker);
+        SmartphoneCharger charger = new SmartphoneCharger();
+        PowerOutlet chargerOutlet = new SmartphoneAdapter(charger);
 
-        //turn on the appliances
-        System.out.println(tvRc.powerOn());
-        System.out.println(airConRc.powerOn());
-        System.out.println(speakerRc.powerOn());
-
-        System.out.println();
-
-        //press button up
-        System.out.println(tvRc.pressPlusButton());
-        System.out.println(airConRc.pressPlusButton());
-        System.out.println(speakerRc.pressPlusButton());
-
+        //plug in the devices
+        System.out.println(laptopOutlet.plugIn());
+        System.out.println(fridgeOutlet.plugIn());
+        System.out.println(chargerOutlet.plugIn());
     }
 }
