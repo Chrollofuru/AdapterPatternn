@@ -1,51 +1,25 @@
-## UML Class Diagram Explanation
+# Problem Statement
 
-The diagram shows how the Adapter Pattern lets incompatible devices be plugged
-into a standard power outlet.
+This assignment demonstrates the Adapter design pattern applied to a device-charging scenario. Several appliances need to draw power, but each one has its own connection method and none of them can plug directly into a shared outlet. Adapters are introduced so that every device can be powered through one common interface, without changing how the devices themselves work.
 
-### Target
+Adaptee Objects:
 
- **PowerOutlet** - The interface the client expects. It declares a single
-  method, `plugIn()`, which represents plugging any device into a standard
-  outlet. The client only ever talks to this interface, never to the devices
-  directly.
+Laptop - a device that runs on battery power and needs charging. Its own method for this is charge().
 
-### Adaptees
+Refrigerator - a device that must stay powered to keep running. Its own method for this is startCooling().
 
-These are the existing device classes. Each one already works, but none of them
-understands `plugIn()` because they each expose their own method instead.
+SmartphoneCharger - a device that powers up a phone. Its own method for this is chargePhone().
 
- **Laptop** - Has `charge()`.
- **Refrigerator** - Has `startCooling()`.
- **SmartphoneCharger** - Has `chargePhone()`.
+Target Object:
 
-### Adapters
+PowerOutlet - the shared interface all devices are expected to connect through. It exposes one method, plugIn(), that every adapter must implement.
 
-Each adapter implements the **PowerOutlet** interface (shown by the dashed
-arrows with hollow triangles pointing up to the interface) and holds a reference
-to its adaptee (shown by the hollow diamond aggregation lines). When `plugIn()`
-is called, the adapter forwards the call to the device's own method.
+Adapter Objects:
 
- **LaptopAdapter** - Wraps a Laptop and translates `plugIn()` to `charge()`.
- **RefrigeratorAdapter** - Wraps a Refrigerator and translates `plugIn()` to
-  `startCooling()`.
- **SmartphoneAdapter** - Wraps a SmartphoneCharger and translates `plugIn()`
-  to `chargePhone()`.
+LaptopAdapter - sits between a Laptop and the PowerOutlet interface, forwarding plugIn() calls to charge().
 
-### Client
+RefrigeratorAdapter - sits between a Refrigerator and the PowerOutlet interface, forwarding plugIn() calls to startCooling().
 
- **ApplianceApp** - Contains the `main()` method. It creates each device,
-  wraps it in the matching adapter, and calls `plugIn()` on each one through the
-  PowerOutlet type. Because it depends only on the interface, adding a new device
-  later only requires writing a new adapter, with no changes to the client code.
+SmartphoneAdapter - sits between a SmartphoneCharger and the PowerOutlet interface, forwarding plugIn() calls to chargePhone().
 
-### Relationships in the Diagram
-
- **Dashed line with hollow triangle** - Realization. Each adapter implements
-  the PowerOutlet interface.
- **Line with hollow diamond** - Aggregation. Each adapter holds a reference to
-  its adaptee.
- **Solid arrows from ApplianceApp** - Dependency. The client uses the adapters
-  to plug devices in.
-
-  ![UML Class Diagram](adapterPattern/adapterPatternImage.png)
+# Class Diagram
