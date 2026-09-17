@@ -48,4 +48,4 @@ is called, the adapter forwards the call to the device's own method.
 - **Solid arrows from ApplianceApp** - Dependency. The client uses the adapters
   to plug devices in.
 
-  ![UML Class Diagram](adapterPatternImage.png)
+  ![UML Class Diagram](AdapterPatternnImage.png)
