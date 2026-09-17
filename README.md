@@ -1,4 +1,4 @@
-
+## UML Class Diagram Explanation
 
 The diagram shows how the Adapter Pattern lets incompatible devices be plugged
 into a standard power outlet.
@@ -47,7 +47,5 @@ is called, the adapter forwards the call to the device's own method.
   its adaptee.
 - **Solid arrows from ApplianceApp** - Dependency. The client uses the adapters
   to plug devices in.
-## UML Class Diagram
 
-![UML Class Diagram](<img width="2320" height="1320" alt="AdapterPatternn" src="https://github.com/user-attachments/assets/9003467e-204e-4fa0-b0ad-4f264452ed5a" />
-)
+  ![UML Class Diagram](adapterPatternImage.png)
