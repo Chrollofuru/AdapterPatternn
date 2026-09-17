@@ -1,4 +1,4 @@
-<img width="2320" height="1320" alt="AdapterPatternn" src="https://github.com/user-attachments/assets/3014325a-2f15-4695-8819-28f2fd78c01d" />## UML Class Diagram Explanation
+
 
 The diagram shows how the Adapter Pattern lets incompatible devices be plugged
 into a standard power outlet.
